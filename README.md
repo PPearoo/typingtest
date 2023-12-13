@@ -9,7 +9,8 @@ python3 -m pip install -R requirements.txt
 <sup>azért nem használunk sima tkinter-t, mert az bűnronda</sup>
 
 Töltsük le a Montserrat.ttf betűtípust is, ha lehet, mert az alap betűtípussal csúnya a GUI.
-*A futtatáshoz MINIMUM Python 3.9 szükséges a .removesuffix beépített függvény miatt, de iskolai prezentálás céljából csináltam egy .exe fájlt, amihez jó a régebbi verzió is*
+
+*A futtatáshoz MINIMUM Python 3.9 szükséges a .removesuffix beépített függvény miatt, ha kisebb a verzió, írd át arra, hogy `.replace("\r", "")`*
 
 ### 💻 A játék lényege
 Majdnem az összes magyar szó le van írva a words.txt fájlban, és a játék onnan választ **5 random szót.** <sup>vagy szavat idk nem tudok ragozni</sup>
