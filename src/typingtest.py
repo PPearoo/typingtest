@@ -23,6 +23,9 @@ class TypingGUI():
         random.shuffle(words)
         self.words = words[:5]
         
+        # Beállítjuk az eddigi legjobb pontot
+        self.best = 0
+        
         # Beállítjuk a főcímet és az alcímet, a főcím vastag betűvel lesz megjelenítve
         self.label_title = tk.CTkLabel(master=self.root, text="ÍRJ A LEGGYORSABBAN!", font=tk.CTkFont("Montserrat", 30, weight="bold"))
         self.label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
@@ -53,6 +56,10 @@ class TypingGUI():
         # Beállítjuk a reset gombot, ami újragenerálja a szavakat
         self.resetBtn = tk.CTkButton(master=self.root, text="Újra", command=self.reset, font=tk.CTkFont("Montserrat", 12, weight="bold"), corner_radius=25)
         self.resetBtn.grid(row=5, column=0, columnspan=3, padx=5, pady=5)
+        
+        # Beállítjuk az eddigi legjobb pontot megjelenítő címkét
+        self.label_best = tk.CTkLabel(master=self.root, text=f"", font=("Montserrat", 12))
+        self.label_best.grid(row=6, column=0, columnspan=2, padx=5, pady=5)
         
         # Beállítjuk a szükséges belső változókat: counter az idő számlálásához, started a játék állapotához (True = megy, False = megállt)
         self.counter = 0
@@ -96,6 +103,9 @@ class TypingGUI():
             # A .removesuffix() függvény csak Python 3.9-től elérhető, ha az alatt van a verzió, egy egyszerű .replace("\r", "")-el is megoldható
             if self._input.get() == self.label_words.cget("text").removesuffix("\r"):
                 self.started = False
+                if wpm > self.best:
+                    self.best = wpm
+                    self.label_best.configure(text=f"Legjobb: {wpm:.2f}")
                 self._input.configure(fg_color="green")
     
     def reset(self, event=None):
