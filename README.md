@@ -2,9 +2,11 @@
 
 ### Futtatás
 ```bash
-python3 -m pip install -R requirements.txt
+python3 -m pip install --upgrade customtkinter
+git clone https://github.com/PearooXD/typingtest.git
+cd src
+python3 typingtest.py
 ```
-...de ez amúgy full fölösleges, mert csak egy modul kell hozzá, szóval az is elég, hogy `python3 -m pip install --upgrade customtkinter`
 
 <sup>azért nem használunk sima tkinter-t, mert az bűnronda</sup>
 
