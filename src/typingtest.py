@@ -3,7 +3,7 @@ import random
 import customtkinter as tk
 import threading as th
 
-with open("src/words.txt", "r", encoding="utf-8") as f:
+with open("words.txt", "r", encoding="utf-8") as f:
     words = f.read().split("\n")
 
 class TypingGUI():
@@ -11,7 +11,7 @@ class TypingGUI():
         # Csinálunk egy ablakot és beállítjuk a nevét, ikonját és méretét, majd konfiguráljuk a rácsrendszert
         self.root = tk.CTk()
         self.root.title("ÍRJ A LEGGYORSABBAN!")
-        self.root.iconbitmap("src/icon.ico")
+        self.root.iconbitmap("icon.ico")
         self.root.geometry("800x600")
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(2, weight=1)
